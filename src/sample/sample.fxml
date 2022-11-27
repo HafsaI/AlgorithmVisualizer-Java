@@ -19,15 +19,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1090.0" stylesheets="@./../styles/Styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller" style ="-fx-background-color: grey;">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1090.0" stylesheets="@./../styles/Styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
-      <BorderPane layoutX="462.0" layoutY="269.0" prefHeight="737.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style ="-fx-background-color: grey;">
+      <BorderPane layoutX="462.0" layoutY="269.0" prefHeight="737.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <VBox prefHeight="65.0" prefWidth="1090.0" BorderPane.alignment="CENTER" style ="-fx-background-color: grey;">
+            <VBox prefHeight="40.0" prefWidth="1090.0" BorderPane.alignment="CENTER">
                <children>
-                  <MenuBar style ="-fx-background-color: grey;">
+                  <!-- <MenuBar>
                     <menus>
-                      <Menu mnemonicParsing="false" text="File" >
+                      <Menu mnemonicParsing="false" text="File">
                         <items>
                           <MenuItem mnemonicParsing="false" text="Close" />
                         </items>
@@ -43,81 +43,87 @@
                         </items>
                       </Menu>
                     </menus>
-                  </MenuBar>
-                  <ToolBar prefHeight="40.0" prefWidth="200.0" style ="-fx-background-color: grey;">
+                  </MenuBar> -->
+                  <ToolBar prefHeight="40.0" prefWidth="200.0">
                     <items>
-                      <Button fx:id="startBtn" mnemonicParsing="false" onAction="#handleStart" text="Start" style="-fx-text-fill: white; -fx-background-color: black; "  />
-                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear" style="-fx-text-fill: white; -fx-background-color: black; "  />
-                        <ComboBox fx:id="comboBox" onAction="#handleComboBox" prefWidth="150.0" promptText="Sorting Algos" style=" -fx-border-color: grey;"  />
-                        <Button fx:id="barBtn" mnemonicParsing="false" onAction="#handleMakeBars" text="Make Bars" style="-fx-text-fill: white; -fx-background-color: black;" />
-                        <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort" style="-fx-text-fill: white; -fx-background-color: black; " />
-                        <Label text="Animation Speed:" style="-fx-text-fill: white;"/>
-                        <Slider fx:id="scrollBar" />
-                        <Label fx:id="numLabel" mnemonicParsing="false" text="Number of Bars: " style="-fx-text-fill: white;"/>
+                      <!-- <Button fx:id="startBtn" mnemonicParsing="false" onAction="#handleStart" text="Start" /> -->
+                        <ComboBox fx:id="comboBox" onAction="#handleComboBox" prefWidth="150.0" promptText="Sorting Algos" />
+                        <Label fx:id="numLabel" mnemonicParsing="false" text="Number of Bars: " />
                         <TextField fx:id="numBars" accessibleHelp="Set the number of bars to be sorted" prefHeight="25.0" prefWidth="48.0" />
+                        <Button fx:id="barBtn" mnemonicParsing="false" onAction="#handleMakeBars" text="Make Bars" />
+                        <Label text="Animation Speed:" />
+                        <Slider fx:id="scrollBar" />
+                        <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort" />
+                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear Canvas" />
                     </items>
                   </ToolBar>
                </children>
             </VBox>
          </top>
          <left>
-            <VBox fx:id="sideVBox" prefHeight="670.0" prefWidth="159.0" BorderPane.alignment="CENTER" style=" -fx-border-color: grey;" >
+            <VBox fx:id="sideVBox" prefHeight="670.0" prefWidth="159.0" BorderPane.alignment="CENTER">
                <children>
-                  <ComboBox fx:id="leftDropDown" prefHeight="26.0" prefWidth="172.0" promptText="Path-Finding Algos" style="-fx-promptText-fill: white;" />
-                  <TextField fx:id="textFieldLeft" />
-                  <HBox prefHeight="22.0" prefWidth="146.0">
+                  <ComboBox fx:id="leftDropDown" prefHeight="26.0" prefWidth="172.0" promptText="Path-Finding Algos" />
+                  <!-- <TextField fx:id="textFieldLeft" /> -->
+                  <!-- <HBox prefHeight="22.0" prefWidth="146.0">
                      <children>
-                        <Label prefHeight="25.0" prefWidth="168.0" style="-fx-font-family: Helvetica; -fx-text-fill: white;" text="  Columns: " />
-                        <TextField fx:id="numColumns" promptText="# columns" style="-fx-text-fill: white"  />
+                        <Label prefHeight="25.0" prefWidth="168.0" style="-fx-font-family: Helvetica;" text="  Columns: " />
+                        <TextField fx:id="numColumns" promptText="# columns" />
                      </children>
-                  </HBox>
-                  <HBox prefHeight="25.0" prefWidth="146.0">
-                     <children>
-                        <Button fx:id="randomizeWalls" mnemonicParsing="false" onAction="#handleRandomize" prefHeight="23.0" prefWidth="103.0" text="Random Walls" style=" -fx-text-fill: white;-fx-background-color: black; -fx-border-color: white; ">
+                  </HBox> -->
+                  <!-- <HBox prefHeight="25.0" prefWidth="146.0">
+                     <children> -->
+
+                        <!-- <Button fx:id="makeGridBtn" mnemonicParsing="false" onAction="#handleMakeGrid" prefHeight="23.0" prefWidth="58.0" text="Create Grid"> -->
+                        
+                           <Button fx:id="makeGridBtn" mnemonicParsing="false" onAction="#handleMakeGrid" prefHeight="28.0" prefWidth="135.0" text="Create Grid" >
                            <font>
                               <Font size="12.0" />
                            </font></Button>
-                        <Button fx:id="makeGridBtn" mnemonicParsing="false" onAction="#handleMakeGrid" prefHeight="23.0" prefWidth="58.0" text="Create" style=" -fx-text-fill: white;-fx-background-color: black; -fx-border-color: white;">
+
+                           <Button fx:id="randomizeWalls" mnemonicParsing="false" onAction="#handleRandomize" prefHeight="28.0" prefWidth="135.0" text="Random Obstacles">
                            <font>
                               <Font size="12.0" />
                            </font></Button>
-                     </children>
-                  </HBox>
-                  <Label prefHeight="23.0" prefWidth="146.0" text="            Maze Types: " textAlignment="CENTER" style=" -fx-text-fill: white;"/>
+                        
+                        
+                     <!-- </children>
+                  </HBox> -->
+                  <!-- <Label prefHeight="23.0" prefWidth="146.0" text="            Maze Types: " textAlignment="CENTER" />
                   <HBox prefHeight="26.0" prefWidth="146.0">
                      <children>
-                        <Button fx:id="generateMaze" mnemonicParsing="false" onAction="#handleGenerateMaze" prefHeight="25.0" prefWidth="81.0" text="Default" style=" -fx-text-fill: white;-fx-background-color: black; -fx-border-color: white;">
+                        <Button fx:id="generateMaze" mnemonicParsing="false" onAction="#handleGenerateMaze" prefHeight="25.0" prefWidth="81.0" text="Default">
                            <font>
                               <Font size="12.0" />
                            </font></Button>
-                        <Button mnemonicParsing="false" onAction="#handleGenerateVerticalMaze" prefHeight="25.0" prefWidth="78.0" text="Vertical" style=" -fx-text-fill: white;-fx-background-color: black; -fx-border-color: white;">
+                        <Button mnemonicParsing="false" onAction="#handleGenerateVerticalMaze" prefHeight="25.0" prefWidth="78.0" text="Vertical">
                            <font>
                               <Font size="12.0" />
                            </font></Button>
                      </children>
-                  </HBox>
-                  <HBox prefHeight="25.0" prefWidth="146.0">
+                  </HBox> -->
+                  <!-- <HBox prefHeight="25.0" prefWidth="146.0">
                      <children>
-                        <CheckBox fx:id="allowHorizontals" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Allow Horizontals" translateX="9.0" style=" -fx-text-fill: white;" />
+                        <CheckBox fx:id="allowHorizontals" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Allow Horizontals" translateX="9.0" />
                      </children>
-                  </HBox>
-                  <Button fx:id="startPathFinding" mnemonicParsing="false" onAction="#handleStartPathFinding" prefHeight="28.0" prefWidth="162.0" text="Start" style=" -fx-text-fill: white;-fx-background-color: black; -fx-border-color: white;">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
+                  </HBox> -->
+                  <Button fx:id="startPathFinding" mnemonicParsing="false" onAction="#handleStartPathFinding" prefHeight="28.0" prefWidth="135.0" text="Start">
+                     <!-- <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font> -->
                   </Button>
-                  <!-- <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" promptText="Algorithm Description" style="-fx-promptText-fill: white;" wrapText="true" /> -->
+                  <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" promptText="Algorithm Description" wrapText="true" />
                </children>
             </VBox>
          </left>
          <center>
             <TabPane fx:id="tabPane" prefHeight="672.0" prefWidth="978.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
-                <Tab fx:id="graphTab" text="Graphs">
+                <!-- <Tab fx:id="graphTab" text="Graphs">
                      <content>
                         <AnchorPane fx:id="graph" onDragDetected="#onGraphDragDetected" onMouseDragged="#onGraphDragged" onMousePressed="#onGraphPressed" onMouseReleased="#onGraphReleased" prefHeight="637.0" prefWidth="928.0" style="-fx-background-color: lightblue;" />
                      </content>
-                </Tab>
+                </Tab> -->
                 <Tab fx:id="sortTab" text="Sorting">
                      <content>
                         <AnchorPane fx:id="sortGraph" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: lightgreen;" />

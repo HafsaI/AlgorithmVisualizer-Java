@@ -31,9 +31,9 @@ import static javafx.scene.paint.Color.color;
 
 public class Controller implements Initializable {
 
-    public TextField numColumns;
-    @FXML
-    private AnchorPane graph;
+    // public TextField numColumns;
+    // @FXML
+    // private AnchorPane graph;
     @FXML
     private AnchorPane sortGraph;
     @FXML
@@ -50,8 +50,8 @@ public class Controller implements Initializable {
     private TextArea textArea;
     @FXML
     private TabPane tabPane;
-    @FXML
-    private Tab graphTab;
+    // @FXML
+    // private Tab graphTab;
     @FXML
     private Tab sortTab;
     @FXML
@@ -61,16 +61,16 @@ public class Controller implements Initializable {
     @FXML
     private ComboBox leftDropDown;
     @FXML
-    private CheckBox allowHorizontals;
+    // private CheckBox allowHorizontals;
 
-    private Vertex vertex1;
-    private Vertex vertex2;
-    private Vertex vertexDelete;
-    private Arrow arrow;
+    // private Vertex vertex1;
+    // private Vertex vertex2;
+    // private Vertex vertexDelete;
+    // private Arrow arrow;
     private BubbleSort bsort;
-    private HeapSort hsort;
+    // private HeapSort hsort;
     private QuickSort qsort;
-    private CoctailSort cSort;
+    // private CoctailSort cSort;
     private InsertionSort iSort;
     private MyRectangle[] rects;
     private MyNode[][] nodes;
@@ -87,35 +87,35 @@ public class Controller implements Initializable {
 
 
     // Graph Events
-    public void onGraphPressed(MouseEvent mouseEvent) {
-        if (mouseEvent.isPrimaryButtonDown()) {
-            this.vertex1 = createAndAddVertex(mouseEvent.getX(), mouseEvent.getY());
-        }
-    }
+    // public void onGraphPressed(MouseEvent mouseEvent) {
+    //     if (mouseEvent.isPrimaryButtonDown()) {
+    //         this.vertex1 = createAndAddVertex(mouseEvent.getX(), mouseEvent.getY());
+    //     }
+    // }
 
-    public void onGraphDragDetected(MouseEvent mouseEvent) {
-        if (mouseEvent.isPrimaryButtonDown()) {
-            this.vertex2 = createAndAddVertex(mouseEvent.getX(), mouseEvent.getY());
-            this.arrow = createAndAddArrow(vertex1, vertex2);
-            this.vertex2.getStyleClass().add("dragged");
-            this.arrow.getStyleClass().add("dragged");
-        }
-    }
+    // public void onGraphDragDetected(MouseEvent mouseEvent) {
+    //     if (mouseEvent.isPrimaryButtonDown()) {
+    //         this.vertex2 = createAndAddVertex(mouseEvent.getX(), mouseEvent.getY());
+    //         this.arrow = createAndAddArrow(vertex1, vertex2);
+    //         this.vertex2.getStyleClass().add("dragged");
+    //         this.arrow.getStyleClass().add("dragged");
+    //     }
+    // }
 
-    public void onGraphDragged(MouseEvent mouseEvent) {
-        if (this.vertex2 != null) {
-            this.vertex2.setLayoutX(mouseEvent.getX());
-            this.vertex2.setLayoutY(mouseEvent.getY());
-        }
-    }
+    // public void onGraphDragged(MouseEvent mouseEvent) {
+    //     if (this.vertex2 != null) {
+    //         this.vertex2.setLayoutX(mouseEvent.getX());
+    //         this.vertex2.setLayoutY(mouseEvent.getY());
+    //     }
+    // }
 
-    public void onGraphReleased(MouseEvent mouseEvent) {
-        if (this.vertex2 != null) {
-            this.vertex2.getStyleClass().remove("dragged");
-            this.arrow.getStyleClass().remove("dragged");
-        }
-        this.vertex2 = null;
-    }
+    // public void onGraphReleased(MouseEvent mouseEvent) {
+    //     if (this.vertex2 != null) {
+    //         this.vertex2.getStyleClass().remove("dragged");
+    //         this.arrow.getStyleClass().remove("dragged");
+    //     }
+    //     this.vertex2 = null;
+    // }
 
     public void onGridDragged(MouseEvent mouseEvent) {
         if (null != this.flatNodes && null != this.grid) {
@@ -135,9 +135,9 @@ public class Controller implements Initializable {
      * @param event
      */
     public void handleClear(ActionEvent event) {
-        if (!this.graph.getChildren().isEmpty()) {
-            this.graph.getChildren().clear();
-        }
+        // if (!this.graph.getChildren().isEmpty()) {
+        //     this.graph.getChildren().clear();
+        // }
         if (!this.sortGraph.getChildren().isEmpty()) {
             this.sortGraph.getChildren().clear();
         }
@@ -149,172 +149,172 @@ public class Controller implements Initializable {
 
     // Vertex Events
 
-    /**
-     * Used to determine when a vertex has been clicked.
-     * @param mouseEvent
-     * @param vertex
-     */
-    private void onVertexPressed(MouseEvent mouseEvent, Vertex vertex) {
-        if (mouseEvent.isPrimaryButtonDown()) {
-            vertex1 = vertex;
-        } else if (mouseEvent.isSecondaryButtonDown()) {
-            vertexDelete = vertex;
-        }
-    }
+    // /**
+    //  * Used to determine when a vertex has been clicked.
+    //  * @param mouseEvent
+    //  * @param vertex
+    //  */
+    // private void onVertexPressed(MouseEvent mouseEvent, Vertex vertex) {
+    //     if (mouseEvent.isPrimaryButtonDown()) {
+    //         vertex1 = vertex;
+    //     } else if (mouseEvent.isSecondaryButtonDown()) {
+    //         vertexDelete = vertex;
+    //     }
+    // }
 
 
-    /**
-     * Used to determine when a vertex has been dragged.
-     * @param mouseEvent
-     * @param vertex
-     */
-    private void onVertexDragDetected(MouseEvent mouseEvent, Vertex vertex) {
-        vertex.toFront();
-        if (mouseEvent.isPrimaryButtonDown()) {
-            this.vertex2 = createAndAddVertex(
-                    vertex.getLayoutX() + mouseEvent.getX() + vertex.getTranslateX(),
-                    vertex.getLayoutY() + mouseEvent.getY() + vertex.getTranslateY()
-            );
-            this.arrow = createAndAddArrow(vertex1, vertex2);
-            this.vertex2.getStyleClass().add("dragged");
-            this.arrow.getStyleClass().add("dragged");
-        } else if (mouseEvent.isSecondaryButtonDown()) {
-            this.vertexDelete = null;
-            if (this.vertex2 != null) {
-                for (Arrow a : vertex2.edges) {
-                    a.getStyleClass().add("dragged");
-                }
-            }
-        }
-    }
+    // /**
+    //  * Used to determine when a vertex has been dragged.
+    //  * @param mouseEvent
+    //  * @param vertex
+    //  */
+    // private void onVertexDragDetected(MouseEvent mouseEvent, Vertex vertex) {
+    //     vertex.toFront();
+    //     if (mouseEvent.isPrimaryButtonDown()) {
+    //         this.vertex2 = createAndAddVertex(
+    //                 vertex.getLayoutX() + mouseEvent.getX() + vertex.getTranslateX(),
+    //                 vertex.getLayoutY() + mouseEvent.getY() + vertex.getTranslateY()
+    //         );
+    //         this.arrow = createAndAddArrow(vertex1, vertex2);
+    //         this.vertex2.getStyleClass().add("dragged");
+    //         this.arrow.getStyleClass().add("dragged");
+    //     } else if (mouseEvent.isSecondaryButtonDown()) {
+    //         this.vertexDelete = null;
+    //         if (this.vertex2 != null) {
+    //             for (Arrow a : vertex2.edges) {
+    //                 a.getStyleClass().add("dragged");
+    //             }
+    //         }
+    //     }
+    // }
 
-    /**
-     * Once a vertex has been dragged, compute the new X Y location.
-     * @param e
-     * @param vertex
-     */
-    private void onVertexDragged(MouseEvent e, Vertex vertex) {
-        if (vertex2 != null) {
-            vertex2.setLayoutX(vertex.getLayoutX() + e.getX() + vertex.getTranslateX());
-            vertex2.setLayoutY(vertex.getLayoutY() + e.getY() + vertex.getTranslateY());
-        }
-        if (e.isPrimaryButtonDown()) {
-            vertex.setLayoutX(vertex.getLayoutX() + e.getX() + vertex.getTranslateX());
-            vertex.setLayoutY(vertex.getLayoutY() + e.getY() + vertex.getTranslateY());
-        }
+    // /**
+    //  * Once a vertex has been dragged, compute the new X Y location.
+    //  * @param e
+    //  * @param vertex
+    //  */
+    // private void onVertexDragged(MouseEvent e, Vertex vertex) {
+    //     if (vertex2 != null) {
+    //         vertex2.setLayoutX(vertex.getLayoutX() + e.getX() + vertex.getTranslateX());
+    //         vertex2.setLayoutY(vertex.getLayoutY() + e.getY() + vertex.getTranslateY());
+    //     }
+    //     if (e.isPrimaryButtonDown()) {
+    //         vertex.setLayoutX(vertex.getLayoutX() + e.getX() + vertex.getTranslateX());
+    //         vertex.setLayoutY(vertex.getLayoutY() + e.getY() + vertex.getTranslateY());
+    //     }
 
-    }
+    // }
 
-    /**
-     * Stop drag event.
-     * @param mouseEvent
-     * @param vertex
-     */
-    private void onVertexReleased(MouseEvent mouseEvent, Vertex vertex) {
-        vertex.getStyleClass().remove("dragged");
-        for (Arrow a : vertex.edges) {
-            a.getStyleClass().remove("dragged");
-        }
-        if (this.vertex2 != null) {
-            this.vertex2.getStyleClass().remove("dragged");
-        }
-        if (vertexDelete != null) {
-            graph.getChildren().remove(vertexDelete);
-            for (Arrow a : vertexDelete.edges) {
-                graph.getChildren().remove(a);
-            }
-//            this.vertex1.setCount(this.vertex1.getCount() - 1);
-        }
-        vertex2 = null;
-        vertexDelete = null;
-    }
+//     /**
+//      * Stop drag event.
+//      * @param mouseEvent
+//      * @param vertex
+//      */
+//     private void onVertexReleased(MouseEvent mouseEvent, Vertex vertex) {
+//         vertex.getStyleClass().remove("dragged");
+//         for (Arrow a : vertex.edges) {
+//             a.getStyleClass().remove("dragged");
+//         }
+//         if (this.vertex2 != null) {
+//             this.vertex2.getStyleClass().remove("dragged");
+//         }
+//         if (vertexDelete != null) {
+//             graph.getChildren().remove(vertexDelete);
+//             for (Arrow a : vertexDelete.edges) {
+//                 graph.getChildren().remove(a);
+//             }
+// //            this.vertex1.setCount(this.vertex1.getCount() - 1);
+//         }
+//         vertex2 = null;
+//         vertexDelete = null;
+//     }
 
 
     // Helper Methods
 
-    /**
-     * Applies action events to each new vertex.
-     * @param x
-     * @param y
-     * @return
-     */
-    private Vertex createAndAddVertex(Double x, Double y) {
-        Vertex vertex = new Vertex(x, y);
+    // /**
+    //  * Applies action events to each new vertex.
+    //  * @param x
+    //  * @param y
+    //  * @return
+    //  */
+    // private Vertex createAndAddVertex(Double x, Double y) {
+    //     Vertex vertex = new Vertex(x, y);
 
-        vertex.setOnAction(e -> {
-            for (Arrow a : vertex.edges) {
-                a.setHeadAVisible(!a.isHeadAVisible());
-                a.setHeadBVisible(!a.isHeadBVisible());
-            }
-        });
-        vertex.setOnMousePressed(mouseEvent -> onVertexPressed(mouseEvent, vertex));
-        vertex.setOnDragDetected(mouseEvent -> onVertexDragDetected(mouseEvent, vertex));
-        vertex.setOnMouseDragged(mouseEvent -> onVertexDragged(mouseEvent, vertex));
-        vertex.setOnMouseReleased(mouseEvent -> onVertexReleased(mouseEvent, vertex));
+    //     vertex.setOnAction(e -> {
+    //         for (Arrow a : vertex.edges) {
+    //             a.setHeadAVisible(!a.isHeadAVisible());
+    //             a.setHeadBVisible(!a.isHeadBVisible());
+    //         }
+    //     });
+    //     vertex.setOnMousePressed(mouseEvent -> onVertexPressed(mouseEvent, vertex));
+    //     vertex.setOnDragDetected(mouseEvent -> onVertexDragDetected(mouseEvent, vertex));
+    //     vertex.setOnMouseDragged(mouseEvent -> onVertexDragged(mouseEvent, vertex));
+    //     vertex.setOnMouseReleased(mouseEvent -> onVertexReleased(mouseEvent, vertex));
 
-        this.graph.getChildren().add(vertex);
+    //     this.graph.getChildren().add(vertex);
 
-        return vertex;
-    }
+    //     return vertex;
+    // }
 
 
-    /**
-     * Add arrow between two vertices.
-     * @param v1
-     * @param v2
-     * @return
-     */
-    private Arrow createAndAddArrow(Vertex v1, Vertex v2) {
-        Arrow arrow = new Arrow(v1.getLayoutX(), v1.getLayoutY(), v2.getLayoutX(), v2.getLayoutY());
-        arrow.x1Property().bind(v1.layoutXProperty());
-        arrow.y1Property().bind(v1.layoutYProperty());
-        arrow.x2Property().bind(v2.layoutXProperty());
-        arrow.y2Property().bind(v2.layoutYProperty());
+    // /**
+    //  * Add arrow between two vertices.
+    //  * @param v1
+    //  * @param v2
+    //  * @return
+    //  */
+    // private Arrow createAndAddArrow(Vertex v1, Vertex v2) {
+    //     Arrow arrow = new Arrow(v1.getLayoutX(), v1.getLayoutY(), v2.getLayoutX(), v2.getLayoutY());
+    //     arrow.x1Property().bind(v1.layoutXProperty());
+    //     arrow.y1Property().bind(v1.layoutYProperty());
+    //     arrow.x2Property().bind(v2.layoutXProperty());
+    //     arrow.y2Property().bind(v2.layoutYProperty());
 
-        v1.edges.add(arrow);
-        v2.edges.add(arrow);
-        v1.addNeighbor(v2);
-        v2.addNeighbor(v1);
-        this.graph.getChildren().add(arrow);
-        return arrow;
-    }
+    //     v1.edges.add(arrow);
+    //     v2.edges.add(arrow);
+    //     v1.addNeighbor(v2);
+    //     v2.addNeighbor(v1);
+    //     this.graph.getChildren().add(arrow);
+    //     return arrow;
+    // }
 
-    /**
-     * Start button handler for binary tree and path-finding algorithms.
-     * @param event
-     * @throws InterruptedException
-     */
-    public void handleStart(ActionEvent event) throws InterruptedException {
-        if (this.tabPane.getSelectionModel().getSelectedItem() == this.gridTab) {
-            if (null == this.nodes) {
-                makeGrid();
-            }
-            boolean horiz = false;
-            if (this.allowHorizontals.isSelected()) {
-                horiz = true;
-            }
+    // /**
+    //  * Start button handler for binary tree and path-finding algorithms.
+    //  * @param event
+    //  * @throws InterruptedException
+    //  */
+    // public void handleStart(ActionEvent event) throws InterruptedException {
+    //     if (this.tabPane.getSelectionModel().getSelectedItem() == this.gridTab) {
+    //         if (null == this.nodes) {
+    //             makeGrid();
+    //         }
+    //         boolean horiz = false;
+    //         // if (this.allowHorizontals.isSelected()) {
+    //         //     horiz = true;
+    //         // }
 
-            switch (selectedGridSort) {
-                case "Dijkstras":
-                    this.textArea.setText(this.observableGridMap.get("Dijkstras"));
-                    Dijkstras djk = new Dijkstras(this.nodes, this.startNode, this.finishNode, horiz);
-                    break;
-                case "A*":
-                    this.textArea.setText(this.observableGridMap.get("A*"));
-                    Astar astar = new Astar(this.nodes, this.startNode, this.finishNode, horiz);
-                    break;
-                default:
-                    System.out.println("invalid selection");
-                    break;
-            }
+    //         switch (selectedGridSort) {
+    //             case "Dijkstras":
+    //                 this.textArea.setText(this.observableGridMap.get("Dijkstras"));
+    //                 Dijkstras djk = new Dijkstras(this.nodes, this.startNode, this.finishNode, horiz);
+    //                 break;
+    //             case "A*":
+    //                 this.textArea.setText(this.observableGridMap.get("A*"));
+    //                 Astar astar = new Astar(this.nodes, this.startNode, this.finishNode, horiz);
+    //                 break;
+    //             default:
+    //                 System.out.println("invalid selection");
+    //                 break;
+    //         }
 
-        } else {
-            System.out.println("start");
-            BinaryTree bTree = new BinaryTree();
-            bTree.createTree( 5, 10, this.graph);
-        }
+    //     } else {
+    //         System.out.println("startt");
+    //         // BinaryTree bTree = new BinaryTree();
+    //         // bTree.createTree( 5, 10, this.graph);
+    //     }
 
-    }
+    // }
 
     /**
      * Handle sort button for sort graph. Uses sorting algorithms.
@@ -331,19 +331,19 @@ public class Controller implements Initializable {
                     this.bsort = new BubbleSort(this.rects, this.sortGraph);
                     this.bsort.sort();
                     break;
-                case "Heap Sort":
-                    this.textArea.setText(this.observableMap.get("Heap Sort"));
-                    this.hsort = new HeapSort(this.rects, this.sortGraph);
-                    this.hsort.sort();
-                    break;
+                // case "Heap Sort":
+                //     this.textArea.setText(this.observableMap.get("Heap Sort"));
+                //     this.hsort = new HeapSort(this.rects, this.sortGraph);
+                //     this.hsort.sort();
+                //     break;
                 case "Quick Sort":
                     this.textArea.setText(this.observableMap.get("Quick Sort"));
                     this.qsort = new QuickSort(this.rects, this.sortGraph);
                     break;
-                case "Coctail Sort":
-                    this.textArea.setText(this.observableMap.get("Coctail Sort"));
-                    this.cSort = new CoctailSort(this.rects, this.sortGraph);
-                    break;
+                // case "Coctail Sort":
+                //     this.textArea.setText(this.observableMap.get("Coctail Sort"));
+                //     this.cSort = new CoctailSort(this.rects, this.sortGraph);
+                //     break;
                 case "Insertion Sort":
                     this.textArea.setText(this.observableMap.get("Insertion Sort"));
                     this.iSort = new InsertionSort(this.rects, this.sortGraph);
@@ -366,23 +366,23 @@ public class Controller implements Initializable {
     /**
      * Allow user input to specify the number of columns in a grid.
      */
-    private void updateColumns() {
-        EventHandler<ActionEvent> columnEvent = new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                cols = Integer.parseInt(numColumns.getText());
-                makeGrid();
-            }
-        };
-        numColumns.setOnAction(columnEvent);
-    }
+    // private void updateColumns() {
+    //     EventHandler<ActionEvent> columnEvent = new EventHandler<ActionEvent>() {
+    //         @Override
+    //         public void handle(ActionEvent event) {
+    //             cols = Integer.parseInt(numColumns.getText());
+    //             makeGrid();
+    //         }
+    //     };
+    //     numColumns.setOnAction(columnEvent);
+    // }
 
     /**
      * Create new grid for path-finding and maze-building.
      */
     private void makeGrid() {
-        this.graph.getChildren().clear();
-        Grid grid = new Grid(this.cols, this.graph);
+        // this.graph.getChildren().clear();
+        Grid grid = new Grid(this.cols, this.grid);
         this.nodes = grid.makeGrid();
         this.flatNodes = grid.getFlattenedNodes();
         int startRow = 3;
@@ -406,36 +406,40 @@ public class Controller implements Initializable {
      * @param event
      */
     public void handleMakeGrid(ActionEvent event) {
-        if (!this.numColumns.getText().isEmpty()){
-            this.cols = Integer.parseInt(this.numColumns.getText());
-        } else {
-            this.cols = 30;
-        }
+        // if (!this.numColumns.getText().isEmpty()){
+        //     this.cols = Integer.parseInt(this.numColumns.getText());
+        // } else {
+        //     this.cols = 30;
+        // }
+        this.cols = 40;
         makeGrid();
     }
 
     /**
      * Creates a new vertical maze.
-     * @param event
-     */
-    public void handleGenerateVerticalMaze(ActionEvent event) {
-        if (null == this.nodes) {
-            makeGrid();
-        }
-        MazeGenerator maze = new MazeGenerator(this.nodes, this.startNode, this.finishNode, true);
-        maze.verticalMaze();
-    }
+    * 
+    */
+    // @param event
+    // public void handleGenerateVerticalMaze(ActionEvent event) {
+    //     if (null == this.nodes) {
+    //         makeGrid();
+    //     }
+    //     MazeGenerator maze = new MazeGenerator(this.nodes, this.startNode, this.finishNode, true);
+    //     maze.verticalMaze();
+    // }
 
     /**
      * Creates a new default maze.
-     * @param event
+     * 
      */
-    public void handleGenerateMaze(ActionEvent event) {
-        if (null == this.nodes) {
-            makeGrid();
-        }
-        MazeGenerator maze = new MazeGenerator(this.nodes, this.startNode, this.finishNode, false);
-    }
+    // @param event
+
+    // public void handleGenerateMaze(ActionEvent event) {
+    //     if (null == this.nodes) {
+    //         makeGrid();
+    //     }
+    //     MazeGenerator maze = new MazeGenerator(this.nodes, this.startNode, this.finishNode, false);
+    // }
 
     /**
      * Begins the selected path-finding algorithm on current grid.
@@ -447,9 +451,9 @@ public class Controller implements Initializable {
                 makeGrid();
             }
             boolean horiz = false;
-            if (this.allowHorizontals.isSelected()) {
-                horiz = true;
-            }
+            // if (this.allowHorizontals.isSelected()) {
+            //     horiz = true;
+            // }
             if (null == selectedGridSort) {
                 selectedGridSort = "Dijkstras";
             }
@@ -470,8 +474,8 @@ public class Controller implements Initializable {
 
         } else {
             System.out.println("start");
-            BinaryTree bTree = new BinaryTree();
-//            bTree.createTree( 5, 10, this.graph);
+            // BinaryTree bTree = new BinaryTree();
+            // bTree.createTree( 5, 10, this.graph);
         }
     }
 
@@ -538,11 +542,11 @@ public class Controller implements Initializable {
                     if (new_val.intValue() < 50) {
                         MyRectangle.setDuration(500 / (new_val.intValue()+1));
                         Astar.duration = 500 / (new_val.intValue()+1);
-                        MazeGenerator.duration = 500 / (new_val.intValue()+1);
+                        // MazeGenerator.duration = 500 / (new_val.intValue()+1);
                     } else {
                         MyRectangle.setDuration(100 / new_val.intValue());
                         Astar.duration =100 / new_val.intValue();
-                        MazeGenerator.duration = 100 / new_val.intValue();
+                        // MazeGenerator.duration = 100 / new_val.intValue();
                     }
                     System.out.println(MyRectangle.getDuration());
                 }
@@ -583,9 +587,9 @@ public class Controller implements Initializable {
     private void fillDescriptionMap() {
         this.observableMap = FXCollections.observableHashMap();
         this.observableMap.put("Bubble Sort", "Bubble Sort has an average of O(n**2) time complexity");
-        this.observableMap.put("Heap Sort", "Heap Sort has an overall time complexity of O(n*log(n). Heapify is O(log(n)) and build heap is O(n).");
+        // this.observableMap.put("Heap Sort", "Heap Sort has an overall time complexity of O(n*log(n). Heapify is O(log(n)) and build heap is O(n).");
         this.observableMap.put("Quick Sort", "Quick Sort has average time complexity of O(n*log(n)).");
-        this.observableMap.put("Coctail Sort", "Coctail Sort has a worst and average time complexity of O(n**2). Compared to Bubble Sort, Coctail Sort performs better, typically less than two times faster.");
+        // this.observableMap.put("Coctail Sort", "Coctail Sort has a worst and average time complexity of O(n**2). Compared to Bubble Sort, Coctail Sort performs better, typically less than two times faster.");
         this.observableMap.put("Insertion Sort", "");
 
         this.observableGridMap = FXCollections.observableHashMap();
@@ -599,7 +603,7 @@ public class Controller implements Initializable {
         this.cols = 0;
         scrollListener();
         fillDescriptionMap();
-        updateColumns();
+        // updateColumns();
         this.comboBox.getItems().addAll(this.observableMap.keySet());
         this.leftDropDown.getItems().addAll(this.observableGridMap.keySet());
         comboAction();
