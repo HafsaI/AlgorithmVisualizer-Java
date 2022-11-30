@@ -9,11 +9,11 @@
     -fx-border-radius: 22;
 }
 
-.arrow {
+/* .arrow {
     -fx-stroke: purple;
-}
+} */
 
-.arrowHead {
+/* .arrowHead {
     -fx-stroke: blue;
     -fx-stroke-width: 3;
 }
@@ -22,7 +22,7 @@
     -fx-stroke: red;
     -fx-background-color: red;
     -opacity: 0.4;
-}
+} */
 
 .label {
     -fx-font: Comic-Sans;
