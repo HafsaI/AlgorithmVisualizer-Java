@@ -25,116 +25,41 @@
          <top>
             <VBox prefHeight="40.0" prefWidth="1090.0" BorderPane.alignment="CENTER">
                <children>
-                  <!-- <MenuBar>
-                    <menus>
-                      <Menu mnemonicParsing="false" text="File">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Close" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Edit">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="Delete" />
-                        </items>
-                      </Menu>
-                      <Menu mnemonicParsing="false" text="Help">
-                        <items>
-                          <MenuItem mnemonicParsing="false" text="About" />
-                        </items>
-                      </Menu>
-                    </menus>
-                  </MenuBar> -->
-                  <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: MEDIUMAQUAMARINE;">
-                    <items>
-                      <!-- <Button fx:id="startBtn" mnemonicParsing="false" onAction="#handleStart" text="Start" /> -->
-                        <ComboBox fx:id="comboBox" onAction="#handleComboBox" prefWidth="150.0" promptText="Sorting Algos"  style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;"  />
-                        <Label fx:id="numLabel" mnemonicParsing="false" text="Number of Bars: " />
-                        <TextField fx:id="numBars" accessibleHelp="Set the number of bars to be sorted" prefHeight="25.0" prefWidth="48.0" />
-                        <Button fx:id="barBtn" mnemonicParsing="false" onAction="#handleMakeBars" text="Make Bars" style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;  " />
-                        <Label text="Animation Speed:" />
-                        <Slider fx:id="scrollBar" />
-                        <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort"  style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;  "/>
-                        <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear Canvas"  style="-fx-background-color: LIGHTBLUE;  -fx-border-color: white; "/>
-                    </items>
-                  </ToolBar>
+                 
+                  <Label text="Algorithm Visualisation"  prefHeight="40.0" prefWidth="168.0" style="-fx-font-family: Helvetica;">
+                  <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
          </top>
          <left>
-            <VBox fx:id="sideVBox" prefHeight="670.0" prefWidth="159.0" BorderPane.alignment="CENTER" style="-fx-background-color: MEDIUMAQUAMARINE;">
+            <VBox fx:id="sideVBox" spacing="10" prefHeight="670.0" prefWidth="159.0" BorderPane.alignment="CENTER" style="-fx-background-color: MEDIUMAQUAMARINE;">
+
                <children>
-                  <ComboBox fx:id="leftDropDown" prefHeight="26.0" prefWidth="172.0" promptText="Path-Finding Algos" style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;" />
-                  <!-- <TextField fx:id="textFieldLeft" /> -->
-                  <!-- <HBox prefHeight="22.0" prefWidth="146.0">
-                     <children>
-                        <Label prefHeight="25.0" prefWidth="168.0" style="-fx-font-family: Helvetica;" text="  Columns: " />
-                        <TextField fx:id="numColumns" promptText="# columns" />
-                     </children>
-                  </HBox> -->
-                  <!-- <HBox prefHeight="25.0" prefWidth="146.0">
-                     <children> -->
-
-                        <!-- <Button fx:id="makeGridBtn" mnemonicParsing="false" onAction="#handleMakeGrid" prefHeight="23.0" prefWidth="58.0" text="Create Grid"> -->
-                        
-                           <Button fx:id="makeGridBtn" mnemonicParsing="false" onAction="#handleMakeGrid" prefHeight="28.0" prefWidth="135.0" text="Create Grid" style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;">
-                           <font>
-                              <Font size="12.0" />
-                           </font></Button>
-
-                           <Button fx:id="randomizeWalls" mnemonicParsing="false" onAction="#handleRandomize" prefHeight="28.0" prefWidth="135.0" text="Random Obstacles" style=" -fx-background-color: LIGHTBLUE;-fx-border-color: white; ">
-                           <font>
-                              <Font size="12.0" />
-                           </font></Button>
-                        
-                        
-                     <!-- </children>
-                  </HBox> -->
-                  <!-- <Label prefHeight="23.0" prefWidth="146.0" text="            Maze Types: " textAlignment="CENTER" />
-                  <HBox prefHeight="26.0" prefWidth="146.0">
-                     <children>
-                        <Button fx:id="generateMaze" mnemonicParsing="false" onAction="#handleGenerateMaze" prefHeight="25.0" prefWidth="81.0" text="Default">
-                           <font>
-                              <Font size="12.0" />
-                           </font></Button>
-                        <Button mnemonicParsing="false" onAction="#handleGenerateVerticalMaze" prefHeight="25.0" prefWidth="78.0" text="Vertical">
-                           <font>
-                              <Font size="12.0" />
-                           </font></Button>
-                     </children>
-                  </HBox> -->
-                  <!-- <HBox prefHeight="25.0" prefWidth="146.0">
-                     <children>
-                        <CheckBox fx:id="allowHorizontals" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="Allow Horizontals" translateX="9.0" />
-                     </children>
-                  </HBox> -->
-                  <Button fx:id="startPathFinding" mnemonicParsing="false" onAction="#handleStartPathFinding" prefHeight="28.0" prefWidth="135.0" text="Start" style=" -fx-background-color: LIGHTBLUE;-fx-border-color: white; ">
-                     <!-- <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font> -->
-                  </Button>
-                  <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" promptText="Algorithm Description" wrapText="true" style="-fx-background-color: lavender;" />
+                  
+                  <ComboBox fx:id="comboBox" onAction="#handleComboBox" prefWidth="150.0" promptText="Sorting Algorithms"  style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;"  />
+                  <Label fx:id="numLabel" mnemonicParsing="false" text="Number of Bars: " />
+                  <TextField fx:id="numBars" accessibleHelp="Set the number of bars to be sorted" prefHeight="25.0" prefWidth="48.0" />
+                  <Button fx:id="barBtn" mnemonicParsing="false" onAction="#handleMakeBars" text="Make Bars" style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;  " />
+                  <Label text="Animation Speed:" />
+                  <Slider fx:id="scrollBar" />
+                  <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort"  style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;  "/>
+                  <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear Canvas"  style="-fx-background-color: LIGHTBLUE;  -fx-border-color: white; "/>
                </children>
+
             </VBox>
          </left>
          <center>
             <TabPane fx:id="tabPane" prefHeight="672.0" prefWidth="978.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" style="-fx-background-color: lavender;">
-              <tabs>
-                <!-- <Tab fx:id="graphTab" text="Graphs">
-                     <content>
-                        <AnchorPane fx:id="graph" onDragDetected="#onGraphDragDetected" onMouseDragged="#onGraphDragged" onMousePressed="#onGraphPressed" onMouseReleased="#onGraphReleased" prefHeight="637.0" prefWidth="928.0" style="-fx-background-color: lightblue;" />
-                     </content>
-                </Tab> -->
+              
                 <Tab fx:id="sortTab" text="Sorting" style="-fx-background-color: LIGHTBLUE;-fx-border-color: white; ">
                      <content>
                         <AnchorPane fx:id="sortGraph" prefHeight="200.0" prefWidth="200.0"  />
                      </content>
                 </Tab>
-                  <Tab fx:id="gridTab" text="Grid" style="-fx-font-family: Helvetica; -fx-background-color: LIGHTBLUE;-fx-border-color: white; ">
-                    <content>
-                      <AnchorPane fx:id="grid" minHeight="0.0" minWidth="0.0" onMouseDragged="#onGridDragged" onMouseReleased="#onGridReleased" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: lavender;" />
-                    </content>
-                  </Tab>
-              </tabs>
+                  
             </TabPane>
          </center></BorderPane>
    </children>
