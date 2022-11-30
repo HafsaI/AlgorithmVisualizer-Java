@@ -44,6 +44,8 @@ public class Controller implements Initializable {
 
     @FXML
     private VBox sideVBox;
+    @FXML
+    private Label timer;
 
     @FXML
     private BubbleSort bsort;
@@ -74,6 +76,9 @@ public class Controller implements Initializable {
      * @param event
      */
     public void handleSort(ActionEvent event) {
+        long startTime;
+        long endTime;
+
         if (null != this.selectedSort) {
             if (null == this.rects) {
                 this.rects = new SortRectangles(this.sortGraph).getRectArr();
@@ -81,17 +86,29 @@ public class Controller implements Initializable {
             switch (this.selectedSort) {
                 case "Bubble Sort":
                     this.bsort = new BubbleSort(this.rects, this.sortGraph);
+                    startTime = System.currentTimeMillis();
                     this.bsort.sort();
+                    endTime = System.currentTimeMillis();
+                    timer.setText("Time taken for this algorithm \nis "+String.valueOf(endTime-startTime)+" seconds");
                     break;
                 case "Heap Sort":
                     this.hsort = new HeapSort(this.rects, this.sortGraph);
+                    startTime = System.currentTimeMillis();
                     this.hsort.sort();
+                    endTime = System.currentTimeMillis();
+                    timer.setText("Time taken for this algorithm \nis "+String.valueOf(endTime-startTime)+" seconds");
                     break;
                 case "Quick Sort":
+                    startTime = System.currentTimeMillis();
                     this.qsort = new QuickSort(this.rects, this.sortGraph);
+                    endTime = System.currentTimeMillis();
+                    timer.setText("Time taken for this algorithm \nis "+String.valueOf(endTime-startTime)+" seconds");
                     break;
                 case "Insertion Sort":
+                    startTime = System.currentTimeMillis();
                     this.iSort = new InsertionSort(this.rects, this.sortGraph);
+                    endTime = System.currentTimeMillis();
+                    timer.setText("Time taken for this algorithm \nis "+String.valueOf(endTime-startTime)+" seconds");
                     break;
                 default:
                     System.out.println("No sorting algorithm selected");

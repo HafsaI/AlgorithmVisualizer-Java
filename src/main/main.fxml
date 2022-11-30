@@ -47,6 +47,7 @@
                   <Slider fx:id="scrollBar" />
                   <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort"  style="-fx-background-color: STEELBLUE; "/>
                   <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear Canvas"  style="-fx-background-color: STEELBLUE; "/>
+                  <Label fx:id="timer"  style="-fx-text-fill: black; "/>
                </children>
 
             </VBox>
