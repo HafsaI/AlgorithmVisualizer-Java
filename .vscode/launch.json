@@ -14,9 +14,10 @@
             "type": "java",
             "name": "Launch Main",
             "request": "launch",
-            "mainClass": "sample.Main",
-            "projectName": "AlgorithmVisualizer-2_89922686",
-            "vmArgs": "--module-path C:/Users/student/javafx-sdk-19/lib --add-modules javafx.controls,javafx.fxml"
+            "mainClass": "main.Main",
+            "projectName": "AlgorithmVisualizer_5382a354",
+            "vmArgs": "--module-path \"C:/Program Files/openjfx-19_windows-x64_bin-sdk/javafx-sdk-19/lib\" --add-modules javafx.controls,javafx.fxml"
+
         }
     ]
 }

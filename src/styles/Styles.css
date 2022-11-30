@@ -9,20 +9,6 @@
     -fx-border-radius: 22;
 }
 
-/* .arrow {
-    -fx-stroke: purple;
-} */
-
-/* .arrowHead {
-    -fx-stroke: blue;
-    -fx-stroke-width: 3;
-}
-
-.dragged {
-    -fx-stroke: red;
-    -fx-background-color: red;
-    -opacity: 0.4;
-} */
 
 .label {
     -fx-font: Comic-Sans;

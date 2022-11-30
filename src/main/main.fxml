@@ -19,11 +19,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1090.0" stylesheets="@./../styles/Styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="737.0" prefWidth="1090.0" stylesheets="@./../styles/Styles.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller" >
    <children>
       <BorderPane layoutX="462.0" layoutY="269.0" prefHeight="737.0" prefWidth="1090.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <VBox prefHeight="40.0" prefWidth="1090.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="40.0" prefWidth="1090.0" BorderPane.alignment="CENTER" style="-fx-background-color: GHOSTWHITE; -fx-border-color: grey; ">
                <children>
                  
                   <Label text="Algorithm Visualisation"  prefHeight="40.0" prefWidth="168.0" style="-fx-font-family: Helvetica;">
@@ -35,26 +35,26 @@
             </VBox>
          </top>
          <left>
-            <VBox fx:id="sideVBox" spacing="10" prefHeight="670.0" prefWidth="159.0" BorderPane.alignment="CENTER" style="-fx-background-color: MEDIUMAQUAMARINE;">
+            <VBox fx:id="sideVBox" spacing="10" prefHeight="670.0" prefWidth="159.0" BorderPane.alignment="CENTER" style="-fx-background-color: GHOSTWHITE;">
 
                <children>
                   
-                  <ComboBox fx:id="comboBox" onAction="#handleComboBox" prefWidth="150.0" promptText="Sorting Algorithms"  style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;"  />
+                  <ComboBox fx:id="comboBox" onAction="#handleComboBox" prefWidth="150.0" promptText="Sorting Algorithms"  style="-fx-background-color: STEELBLUE; "  />
                   <Label fx:id="numLabel" mnemonicParsing="false" text="Number of Bars: " />
                   <TextField fx:id="numBars" accessibleHelp="Set the number of bars to be sorted" prefHeight="25.0" prefWidth="48.0" />
-                  <Button fx:id="barBtn" mnemonicParsing="false" onAction="#handleMakeBars" text="Make Bars" style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;  " />
+                  <Button fx:id="barBtn" mnemonicParsing="false" onAction="#handleMakeBars" text="Make Bars" style="-fx-background-color: STEELBLUE; " />
                   <Label text="Animation Speed:" />
                   <Slider fx:id="scrollBar" />
-                  <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort"  style="-fx-background-color: LIGHTBLUE; -fx-border-color: white;  "/>
-                  <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear Canvas"  style="-fx-background-color: LIGHTBLUE;  -fx-border-color: white; "/>
+                  <Button fx:id="sortBtn" mnemonicParsing="false" onAction="#handleSort" text="Sort"  style="-fx-background-color: STEELBLUE; "/>
+                  <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#handleClear" text="Clear Canvas"  style="-fx-background-color: STEELBLUE; "/>
                </children>
 
             </VBox>
          </left>
          <center>
-            <TabPane fx:id="tabPane" prefHeight="672.0" prefWidth="978.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" style="-fx-background-color: lavender;">
+            <TabPane fx:id="tabPane" prefHeight="672.0" prefWidth="1100.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER" style="-fx-background-color: LIGHTSTEELBLUE;">
               
-                <Tab fx:id="sortTab" text="Sorting" style="-fx-background-color: LIGHTBLUE;-fx-border-color: white; ">
+                <Tab fx:id="sortTab" text="Sorting" style="-fx-background-color: STEELBLUE; ">
                      <content>
                         <AnchorPane fx:id="sortGraph" prefHeight="200.0" prefWidth="200.0"  />
                      </content>
