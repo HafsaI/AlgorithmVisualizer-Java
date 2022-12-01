@@ -1,5 +1,7 @@
 package main;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableMap;
 import javafx.event.ActionEvent;
@@ -8,16 +10,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ScrollEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
+import algorithms.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import algorithms.*;
-
-// import static javafx.scene.paint.Color.BLACK;
-// import static javafx.scene.paint.Color.color;
+import static javafx.scene.paint.Color.BLACK;
+import static javafx.scene.paint.Color.color;
 
 public class Controller implements Initializable {
 
@@ -38,15 +41,12 @@ public class Controller implements Initializable {
     private TextArea textArea;
     @FXML
     private TabPane tabPane;
-
-    @FXML
-    private Tab sortTab;
-
-    @FXML
-    private VBox sideVBox;
     @FXML
     private Label timer;
-
+    @FXML
+    private Tab sortTab;
+    @FXML
+    private VBox sideVBox;
     @FXML
     private BubbleSort bsort;
     private HeapSort hsort;
@@ -66,9 +66,6 @@ public class Controller implements Initializable {
         if (!this.sortGraph.getChildren().isEmpty()) {
             this.sortGraph.getChildren().clear();
         }
-        if (!this.grid.getChildren().isEmpty()) {
-            this.grid.getChildren().clear();
-        }
     }
 
     /**
@@ -78,7 +75,6 @@ public class Controller implements Initializable {
     public void handleSort(ActionEvent event) {
         long startTime;
         long endTime;
-
         if (null != this.selectedSort) {
             if (null == this.rects) {
                 this.rects = new SortRectangles(this.sortGraph).getRectArr();
@@ -138,6 +134,27 @@ public class Controller implements Initializable {
         }
     }
 
+    private void scrollListener() {
+        this.scrollBar.valueProperty().addListener(new ChangeListener<Number>() {
+            public void changed(ObservableValue<? extends Number> ov,
+                                Number old_val, Number new_val) {
+                if (null != rects) {
+                    if (new_val.intValue() < 50) {
+                        MyRectangle.setDuration(500 / (new_val.intValue()+1));
+                    } else {
+                        MyRectangle.setDuration(100 / new_val.intValue());
+                    }
+                    System.out.println(MyRectangle.getDuration());
+                }
+            }
+        });
+        if (null != rects) {
+            for (MyRectangle rect : this.rects) {
+                rect.setDura(MyRectangle.getDuration());
+            }
+        }
+    }
+
     public void handleComboBox(ActionEvent event) {
         System.out.println("cbox");
     }
@@ -150,6 +167,12 @@ public class Controller implements Initializable {
                 System.out.println(selectedSort);
             }
         };
+        EventHandler<ActionEvent> gridEvent = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println(selectedGridSort);
+            }
+        };
         this.comboBox.setOnAction(event);
     }
 
@@ -159,17 +182,14 @@ public class Controller implements Initializable {
         this.observableMap.put("Heap Sort", "Heap Sort has an overall time complexity of O(n*log(n). Heapify is O(log(n)) and build heap is O(n).");
         this.observableMap.put("Quick Sort", "Quick Sort has average time complexity of O(n*log(n)).");
         this.observableMap.put("Insertion Sort", "");
-        
-    }
+        }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.scrollBar.setBlockIncrement(10);
-        // this.cols = 0;
+        scrollListener();
         fillDescriptionMap();
         this.comboBox.getItems().addAll(this.observableMap.keySet());
         comboAction();
     }
 }
-
-

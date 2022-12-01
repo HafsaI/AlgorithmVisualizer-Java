@@ -22,7 +22,6 @@ public class HeapSort {
     public HeapSort(MyRectangle[] _rectArr, AnchorPane _grid) {
         this.transitions = new ArrayList<>();
         this.grid = _grid;
-//        this.numBars = _numBars;
         this.rectArr = _rectArr;
         this.duration = MyRectangle.getDuration();
     }
