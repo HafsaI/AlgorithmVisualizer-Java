@@ -34,7 +34,6 @@ public class InsertionSort {
                 this.transitions.add(swapRects(this.rectArr, j, j+1, this.duration));
                 j -= 1;
             }
-            this.transitions.add(swapRects(this.rectArr, j+1, i, this.duration));
         }
         seqT.getChildren().addAll(this.transitions);
         seqT.play();
